@@ -1,6 +1,7 @@
 import React from 'react'
 import { TbVirusSearch } from 'react-icons/tb'
 import { useWebCrawl } from '../providers/WebCrawl'
+import Toggle from './Toggle'
 
 const Header = () => {
     const { isDark, setIsDark } = useWebCrawl()
@@ -12,7 +13,7 @@ const Header = () => {
                     <TbVirusSearch className='text-logo text-[40px]'/>
                     <span className={`text-[30px] font-bold ${isDark ? 'text-titleDark' : 'text-title'} ml-6`}>Web Crawling</span>
                 </section>
-                <button onClick={() => setIsDark(!isDark)}>Darkmode</button>
+                <Toggle />
             </div>
         </div>
     )
