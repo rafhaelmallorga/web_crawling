@@ -15,14 +15,13 @@ export interface InspectionListInterface {
 }
 
 export interface WebCrawlContextInterface {
-    inspectionIdList: NewInspectionResponseInterface[];
-    setInspectionIdList: any;
-    inspectionList: InspectionListInterface[];
+    inspectionList: InspectionListInterface[] | [];
     setInspectionList: any;
     isDark: boolean; 
     setIsDark: any;
     retrieveInspectionById: (id: string) => Promise<void> 
     createNewInspection: (data: NewInspectionInterface) => Promise<void>
+    deleteInspectionById: (id: string)  => Promise<void>
 }
 
 export interface WebCrawlProviderProps {

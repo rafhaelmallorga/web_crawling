@@ -4,25 +4,30 @@ import { BiLoaderCircle } from "react-icons/bi"
 import { RiDeleteBinFill } from "react-icons/ri"
 import { FiPlusCircle } from "react-icons/fi"
 import { useWebCrawl } from '../providers/WebCrawl'
+import { InspectionListInterface } from '../interfaces'
 
-const InspectionItemList = () => {
-    const {isDark, setIsDark} = useWebCrawl()
+interface IInspection {
+    inspection: InspectionListInterface
+}
+
+const InspectionItemList = ({ inspection }: IInspection) => {
+    const {isDark, setIsDark, retrieveInspectionById, deleteInspectionById} = useWebCrawl()
 
 
     return (
-        <li className={`w-full h-[50px] px-10 flex justify-between items-center ${isDark ? 'bg-backDark text-labelDark border-borderDark' : 'bg-back text-label border-border'} border-b-[1px] ${isDark ? 'hover:bg-hoverDark' : 'hover:bg-hover'} transition ease-in duration-500`}>
+        <li key={inspection.id} className={`w-full h-[50px] px-10 flex justify-between items-center ${isDark ? 'bg-backDark text-labelDark border-borderDark' : 'bg-back text-label border-border'} border-b-[1px] ${isDark ? 'hover:bg-hoverDark' : 'hover:bg-hover'} transition ease-in duration-500`}>
             <div className='flex justify-center items-center font-normal'>
-                <GrStatusCriticalSmall className='mr-2'/>
-                <span>Status: <span className='font-semibold'>DONE</span></span>
+                <GrStatusCriticalSmall className={`mr-2 ${inspection.status === 'active' ? 'text-yellow-300' : 'text-green-500'}`}/>
+                <span>Status: <span className='font-semibold'>{inspection.status.toUpperCase()}</span></span>
             </div>
-            <span className='font-normal'>ID: <span className='font-semibold'>OOpRO9vr</span></span>
+            <span className='font-normal'>ID: <span className='font-semibold'>{inspection.id}</span></span>
             <button className='flex justify-center items-center font-semibold bg-logo px-2 text-white rounded-sm'><FiPlusCircle className='mr-1' />urls</button>
             <div className='w-[180px] flex justify-between items-center'>
-                <button className='flex justify-center items-center text-[14px] text-logo'>
+                <button onClick={() => retrieveInspectionById(inspection.id)} className='flex justify-center items-center text-[14px] text-logo'>
                     <BiLoaderCircle className='mr-1 text-[18px]' />
                     Atualizar
                 </button>
-                <button>
+                <button onClick={() => deleteInspectionById(inspection.id)}>
                     <RiDeleteBinFill color='red'/>
                 </button>
             </div>
