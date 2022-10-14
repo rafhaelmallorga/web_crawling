@@ -5,7 +5,7 @@ const Form = () => {
     const { isDark, setIsDark } = useWebCrawl()
 
     return (
-        <div className={`w-full max-w-[1000px] h-[180px] my-4 ${isDark ? 'bg-[#272c38] border-borderDark' : 'bg-backForm border-border'} shadow`}>
+        <div className={`w-full max-w-[1000px] h-[180px] my-4 ${isDark ? 'bg-backFormDark' : 'bg-backForm'} shadow`}>
             <div className={`px-10 py-5 text-[22px] font-semibold ${isDark ? 'text-titleDark' : 'text-title'}`}>
                 <h3>Cadastre sua solicitação de inspeção</h3>
             </div>

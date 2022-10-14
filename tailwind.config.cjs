@@ -17,7 +17,7 @@ module.exports = {
         placeholderDark: '#687184',
         backDark: '#343B4A',
         back2Dark: '#2C313E',
-        backFormDark: '#2C313E',
+        backFormDark: '#272c38',
         hoverDark: '#3C4556',
         borderDark: '#444'
       },

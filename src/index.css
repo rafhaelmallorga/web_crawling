@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.status__shadow {
+  box-shadow: -2px -2px 5px #555 inset;
+}
