@@ -8,6 +8,7 @@ export const WebCrawlContext = createContext<WebCrawlContextInterface>({} as Web
 export const WebCrawlProvider = ({children}: WebCrawlProviderProps) => {
     const [inspectionIdList, setInspectionIdList] = useState<NewInspectionResponseInterface[]>([])
     const [inspectionList, setInspectionList] = useState<InspectionListInterface[]>([])
+    const [isDark, setIsDark] = useState<boolean>(false)
 
     const retrieveInspectionById = async (id: string) => {
         api.get(`/${id}`)
@@ -26,8 +27,10 @@ export const WebCrawlProvider = ({children}: WebCrawlProviderProps) => {
     }
 
     return (
-        <WebCrawlContext.Provider value={{inspectionIdList, setInspectionIdList, inspectionList, setInspectionList, retrieveInspectionById, createNewInspection}}>
+        <WebCrawlContext.Provider value={{inspectionIdList, setInspectionIdList, inspectionList, setInspectionList, retrieveInspectionById, createNewInspection, isDark, setIsDark}}>
             {children}
         </WebCrawlContext.Provider>
     )
 }
+
+export const useWebCrawl = () => useContext(WebCrawlContext)

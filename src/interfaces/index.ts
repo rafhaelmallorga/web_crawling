@@ -19,6 +19,8 @@ export interface WebCrawlContextInterface {
     setInspectionIdList: any;
     inspectionList: InspectionListInterface[];
     setInspectionList: any;
+    isDark: boolean; 
+    setIsDark: any;
     retrieveInspectionById: (id: string) => Promise<void> 
     createNewInspection: (data: NewInspectionInterface) => Promise<void>
 }
