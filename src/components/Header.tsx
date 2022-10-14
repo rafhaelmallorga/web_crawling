@@ -7,11 +7,11 @@ const Header = () => {
     const { isDark, setIsDark } = useWebCrawl()
 
     return (
-        <div className={`w-full h-[70px] flex justify-center items-center ${isDark ? 'bg-backDark border-borderDark' : 'bg-back border-border'} border-b-[1px] shadow-sm`}>
+        <div className={`w-full h-[70px] flex justify-center items-center ${isDark ? 'bg-backDark border-borderDark' : 'bg-back border-border'} border-b-[1px] shadow-sm transition ease-in duration-500`}>
             <div className='w-full max-w-[1000px] flex justify-between items-center'>
                 <section className='flex justify-center items-center'>
                     <TbVirusSearch className='text-logo text-[40px]'/>
-                    <span className={`text-[30px] font-bold ${isDark ? 'text-titleDark' : 'text-title'} ml-6`}>Web Crawling</span>
+                    <span className={`text-[30px] font-bold ${isDark ? 'text-titleDark' : 'text-title'} ml-6 transition ease-in duration-500`}>Web Crawling</span>
                 </section>
                 <Toggle />
             </div>

@@ -10,7 +10,7 @@ const InspectionItemList = () => {
 
 
     return (
-        <li className={`w-full h-[50px] px-10 flex justify-between items-center ${isDark ? 'bg-backDark text-labelDark border-borderDark' : 'bg-back text-label border-border'} border-b-[1px] ${isDark ? 'hover:bg-hoverDark' : 'hover:bg-hover'}`}>
+        <li className={`w-full h-[50px] px-10 flex justify-between items-center ${isDark ? 'bg-backDark text-labelDark border-borderDark' : 'bg-back text-label border-border'} border-b-[1px] ${isDark ? 'hover:bg-hoverDark' : 'hover:bg-hover'} transition ease-in duration-500`}>
             <div className='flex justify-center items-center font-normal'>
                 <GrStatusCriticalSmall className='mr-2'/>
                 <span>Status: <span className='font-semibold'>DONE</span></span>
