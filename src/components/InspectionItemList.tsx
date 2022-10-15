@@ -16,7 +16,7 @@ const InspectionItemList = ({ inspection }: IInspection) => {
 
     return (
         <li key={inspection.id} className={`w-full h-[50px] px-10 flex justify-between items-center ${isDark ? 'bg-backDark text-labelDark border-borderDark' : 'bg-back text-label border-border'} border-b-[1px] ${isDark ? 'hover:bg-hoverDark' : 'hover:bg-hover'} transition ease-in duration-500`}>
-            <div className='w-[20%] flex justify-center items-center font-normal'>
+            <div className='w-[20%] flex justify-start items-center font-normal'>
                 <GrStatusCriticalSmall className={`mr-2 ${inspection.status === 'active' ? 'text-yellow-300' : 'text-green-500'}`}/>
                 <span>Status: <span className='font-semibold'>{inspection.status.toUpperCase()}</span></span>
             </div>
