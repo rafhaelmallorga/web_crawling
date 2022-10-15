@@ -11,7 +11,10 @@ const Form = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const schema = yup.object().shape({
-        keyword: yup.string().required('Digite a palavra chave!')
+        keyword: yup.string()
+            .required('Digite a palavra chave!')
+            .min(4, 'A palavra deve ter 4 letras.')
+            .max(32, 'A palavra deve ter no máximo 32 letras.')
     })
 
     const {
@@ -45,6 +48,7 @@ const Form = () => {
                 </div>
                 <button type='submit' className={`bg-logo h-[40px] ml-8 px-4 rounded-sm text-white font-semibold hover:brightness-90`}>Cadastrar</button>
             </form>
+            {errors.keyword && <span className='px-10 text-red-700'>{errors.keyword.message}</span>}
         </div>
     )
 }
