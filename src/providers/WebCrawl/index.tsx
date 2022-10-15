@@ -8,6 +8,8 @@ export const WebCrawlContext = createContext<WebCrawlContextInterface>({} as Web
 export const WebCrawlProvider = ({children}: WebCrawlProviderProps) => {
     const [inspectionList, setInspectionList] = useState<InspectionListInterface[]>(JSON.parse(localStorage.getItem('@InspectionsList') || '[]'))
     const [isDark, setIsDark] = useState<boolean>(false)
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
+    const [handleUrls, setHandleUrls] = useState<string[]>([])
 
     useEffect(() => {
         localStorage.setItem('@InspectionsList', JSON.stringify(inspectionList))
@@ -47,7 +49,7 @@ export const WebCrawlProvider = ({children}: WebCrawlProviderProps) => {
     }
 
     return (
-        <WebCrawlContext.Provider value={{inspectionList, setInspectionList, retrieveInspectionById, createNewInspection, isDark, setIsDark, deleteInspectionById}}>
+        <WebCrawlContext.Provider value={{inspectionList, setInspectionList, retrieveInspectionById, createNewInspection, isDark, setIsDark, modalIsOpen, setModalIsOpen, handleUrls, setHandleUrls, deleteInspectionById}}>
             {children}
         </WebCrawlContext.Provider>
     )
