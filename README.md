@@ -44,6 +44,10 @@ npm run build
 
 [Voltar ao topo](#web-crawling)
 
+**Atenção:** Por limitação da Vercel não é possivel desabilitar o protocolo HTTPS, sendo assim para conseguir cadastrar solicitações de inspeção será necessario clonar a aplicação localmente, já que a API utilizada nesse projeto utiliza o protocolo HTTP.
+
+Link: [Web Crawling](https://web-crawling.vercel.app/)
+
 ## **Tecnologias**
 
 [Voltar ao topo](#web-crawling)
